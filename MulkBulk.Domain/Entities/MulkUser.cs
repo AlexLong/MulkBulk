@@ -26,6 +26,8 @@ namespace MulkBulk.Domain.Entities
             set { _messages = value; }
         }
 
+
+        /**/
         public DateTime RegistrationDate { get; set; }
 
 
