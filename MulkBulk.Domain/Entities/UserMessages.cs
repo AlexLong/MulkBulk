@@ -14,7 +14,7 @@ namespace MulkBulk.Domain.Entities
         public int SenderID { get; set; }
 
         [ForeignKey("SenderID")]
-        public virtual UserEntity Author { get; set; }
+        public virtual MulkUser Author { get; set; }
         public DateTime Date { get; set; }
 
     }

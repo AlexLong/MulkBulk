@@ -31,16 +31,16 @@ namespace MulkBulk.User.Services
             return _context.Users.All();
         }
 
-        public UserEntity GetBy(string username)
+        public MulkUser GetBy(string username)
         {
             return _context.Users.GetBy(username);
         }
 
 
-        public UserEntity Create(string username, string password, string email, DateTime? created = null)
+        public MulkUser Create(string username, string password, string email, DateTime? created = null)
         {
             
-            var user = new UserEntity()
+            var user = new MulkUser()
             {
                 UserName = username,
                 Password = Crypto.HashPassword(password),

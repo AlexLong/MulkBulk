@@ -103,7 +103,7 @@
     <Compile Include="Entities\UserFriends.cs" />
     <Compile Include="Entities\UserIdentify.cs" />
     <Compile Include="Entities\UserMessages.cs" />
-    <Compile Include="Entities\UserEntity.cs" />
+    <Compile Include="Entities\MulkUser.cs" />
     <Compile Include="Migrations\201311270554467_InitialCreate.cs" />
     <Compile Include="Migrations\201311270554467_InitialCreate.Designer.cs">
       <DependentUpon>201311270554467_InitialCreate.cs</DependentUpon>

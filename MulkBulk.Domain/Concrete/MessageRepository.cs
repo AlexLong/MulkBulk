@@ -18,12 +18,12 @@ namespace MulkBulk.Domain.Concrete
             return Find(m => m.Id == id);
         }
 
-        public IEnumerable<UserMessages> GetFor(UserEntity user)
+        public IEnumerable<UserMessages> GetFor(MulkUser user)
         {
-            return FindAll(m => m.Id == user.UserID);
+            return FindAll(m => m.Id == user.Id);
         }
 
-        public void AddFor(UserMessages message, UserEntity user)
+        public void AddFor(UserMessages message, MulkUser user)
         {
             user.Messages.Add(message);
 
