@@ -30,13 +30,13 @@ namespace MulkBulk.User.Services
 
             return _context.Users.All();
         }
-
+        /*
         public MulkUser GetBy(string username)
         {
             return _context.Users.GetBy(username);
         }
-
-
+        */
+        /*
         public MulkUser Create(string username, string password, string email, DateTime? created = null)
         {
             
@@ -55,16 +55,16 @@ namespace MulkBulk.User.Services
             return user;
         }
    
-
+        */
         public UserMessages ComposeMessage(string mess, string to)
         {
             var message = new UserMessages()
             {
                 Date = DateTime.Now,
                 MessageContent = mess,
-                SenderID = 1,
+                AuthorId = 1,
             };
-            var use = _users.GetBy(message.SenderID);
+            var use = _users.GetBy(message.AuthorId);
             _messages.AddFor(message, use);
 
             _context.SaveChanges();

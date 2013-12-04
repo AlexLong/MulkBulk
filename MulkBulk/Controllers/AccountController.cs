@@ -79,6 +79,7 @@ namespace MulkBulk.Controllers
             if (ModelState.IsValid)
             {
                 var user = new IdentityModels() { UserName = model.UserName };
+           
                 var result = await UserManager.CreateAsync(user, model.Password);
             
                 if (result.Succeeded)

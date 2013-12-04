@@ -10,7 +10,6 @@ namespace MulkBulk.Domain.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "MulkBulk.Domain.Concrete.UserDatabase";
         }
 
         protected override void Seed(MulkBulk.Domain.Concrete.UserDatabase context)

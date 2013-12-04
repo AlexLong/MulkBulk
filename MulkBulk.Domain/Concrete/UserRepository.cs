@@ -41,6 +41,7 @@ namespace MulkBulk.Domain.Concrete
 
             return query.SingleOrDefault(u => u.Id == id);
         }
+        /*
 
         public MulkUser GetBy(string username, bool includeProfile = false, bool includeRibbits = false,
             bool includeFollowers = false, bool includeFollowing = false)
@@ -50,6 +51,7 @@ namespace MulkBulk.Domain.Concrete
             
             return query.SingleOrDefault(u => u.UserName == username);
         }
+         */
 
 
         public MulkUser GetBy(string username)

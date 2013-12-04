@@ -11,22 +11,14 @@ namespace MulkBulk.Domain.Entities
     {
         [Key]
         public int Id { get; set; }
-
-        public string UserName { get; set; }
-
-        public string Password { get; set; }
-
         public string Email { get; set; }
 
         private IList<UserMessages> _messages;
-
         public virtual IList<UserMessages> Messages
         {
             get { return _messages ?? (_messages = new List<UserMessages>()); }
             set { _messages = value; }
         }
-
-
         /**/
         public DateTime RegistrationDate { get; set; }
 

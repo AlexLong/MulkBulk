@@ -60,6 +60,8 @@
     <Reference Include="MySql.Web, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Web.6.7.4\lib\net40\MySql.Web.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -100,48 +102,22 @@
     <Compile Include="Concrete\MessageRepository.cs" />
     <Compile Include="Concrete\UserDatabase.cs" />
     <Compile Include="Concrete\UserRepository.cs" />
-    <Compile Include="Entities\UserFriends.cs" />
-    <Compile Include="Entities\UserIdentify.cs" />
-    <Compile Include="Entities\UserMessages.cs" />
     <Compile Include="Entities\MulkUser.cs" />
-    <Compile Include="Migrations\201311270554467_InitialCreate.cs" />
-    <Compile Include="Migrations\201311270554467_InitialCreate.Designer.cs">
-      <DependentUpon>201311270554467_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311281436333_AddDescriptionCategory.cs" />
-    <Compile Include="Migrations\201311281436333_AddDescriptionCategory.Designer.cs">
-      <DependentUpon>201311281436333_AddDescriptionCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311290358143_AddReceiverId.cs" />
-    <Compile Include="Migrations\201311290358143_AddReceiverId.Designer.cs">
-      <DependentUpon>201311290358143_AddReceiverId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311290550273_GlobalRefactoring.cs" />
-    <Compile Include="Migrations\201311290550273_GlobalRefactoring.Designer.cs">
-      <DependentUpon>201311290550273_GlobalRefactoring.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201311290554046_GlobalRefactoring1.cs" />
-    <Compile Include="Migrations\201311290554046_GlobalRefactoring1.Designer.cs">
-      <DependentUpon>201311290554046_GlobalRefactoring1.cs</DependentUpon>
+    <Compile Include="Entities\UserFriends.cs" />
+    <Compile Include="Entities\UserMessages.cs" />
+    <Compile Include="Migrations\201312040524136_test.cs" />
+    <Compile Include="Migrations\201312040524136_test.Designer.cs">
+      <DependentUpon>201312040524136_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201311270554467_InitialCreate.resx">
-      <DependentUpon>201311270554467_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311281436333_AddDescriptionCategory.resx">
-      <DependentUpon>201311281436333_AddDescriptionCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311290358143_AddReceiverId.resx">
-      <DependentUpon>201311290358143_AddReceiverId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311290550273_GlobalRefactoring.resx">
-      <DependentUpon>201311290550273_GlobalRefactoring.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201311290554046_GlobalRefactoring1.resx">
-      <DependentUpon>201311290554046_GlobalRefactoring1.cs</DependentUpon>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201312040524136_test.resx">
+      <DependentUpon>201312040524136_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

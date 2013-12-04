@@ -15,6 +15,13 @@ namespace MulkBulk.Domain.Concrete
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            /*
+            modelBuilder.Entity<UserMessages>()
+                .HasRequired(m => m.Author)
+                .WithMany()
+                .HasForeignKey(m => m.SenderID);
+             */
+                            
             modelBuilder.Entity<MulkUser>().HasMany(m => m.Messages);
             base.OnModelCreating(modelBuilder);
         }
