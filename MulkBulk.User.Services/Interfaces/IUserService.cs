@@ -11,13 +11,11 @@ namespace MulkBulk.User.Services.Interfaces
     public  interface IUserService
     {
         IEnumerable All();
-
-        /*
-        MulkUser GetBy(string username);
-         */
-        /*
-        MulkUser Create(string username, string password, string email, DateTime? created = null);
-         * */
         UserMessages ComposeMessage(string mess, string to);
+
+        MulkUser Create(string email, DateTime? created = null);
+
+        bool DoesUserExist(string email);
+
     }
 }

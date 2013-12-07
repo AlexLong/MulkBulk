@@ -9,11 +9,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using MulkBulk.Models;
+using MulkBulk.Domain.Entities;
 
 namespace MulkBulk.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : MulkControllerBase
     {
         public AccountController()
             : this(new UserManager<IdentityModels>(new UserStore<IdentityModels>(new ApplicationDbContext())))
@@ -78,10 +79,15 @@ namespace MulkBulk.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityModels() { UserName = model.UserName };
-           
+
+                if(_users.DoesUserExist(model.Email))
+                {
+                    ModelState.AddModelError("Email", "Email is already taken.");
+                    return View("Register", model);
+                }
+
+                var user = new IdentityModels() { UserName = model.UserName, MulkUsers = _users.Create(model.Email) };
                 var result = await UserManager.CreateAsync(user, model.Password);
-            
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);

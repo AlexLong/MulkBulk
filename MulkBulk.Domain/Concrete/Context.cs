@@ -32,6 +32,8 @@ namespace MulkBulk.Domain.Concrete
             get;
             private set;
         }
+
+     
         public int SaveChanges()
         {
             return _db.SaveChanges();

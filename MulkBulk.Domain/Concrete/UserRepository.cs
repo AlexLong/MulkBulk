@@ -16,7 +16,7 @@ namespace MulkBulk.Domain.Concrete
         {
             return Find(userId);
         }
-        private IQueryable<MulkUser> BuildUserQuery(bool includeProfile, bool includeRibbits, bool includeFollowers, bool includeFollowing)
+        private IQueryable<MulkUser> BuildUserQuery(/*bool includeProfile, bool includeRibbits, bool includeFollowers, bool includeFollowing*/)
         {
             var query = ContextDbSet.AsQueryable();
             /*
@@ -34,29 +34,18 @@ namespace MulkBulk.Domain.Concrete
              * */
             return query;
         }
-        public MulkUser GetBy(int id, bool includeProfile = false, bool includeRibbits = false,
-          bool includeFollowers = false, bool includeFollowing = false)
-        {
-            var query = BuildUserQuery(includeProfile, includeRibbits, includeFollowers, includeFollowing);
-
-            return query.SingleOrDefault(u => u.Id == id);
-        }
-        /*
-
-        public MulkUser GetBy(string username, bool includeProfile = false, bool includeRibbits = false,
-            bool includeFollowers = false, bool includeFollowing = false)
+     
+        public MulkUser GetBy(string email)
         {
 
-            var query = BuildUserQuery(includeProfile, includeRibbits, includeFollowers, includeFollowing);
-            
-            return query.SingleOrDefault(u => u.UserName == username);
-        }
-         */
+            var query = BuildUserQuery();
 
 
-        public MulkUser GetBy(string username)
-        {
-            throw new NotImplementedException();
-        }
+            return query.FirstOrDefault(x => x.Email == email);
+        
+        } 
+        
+       
+
     }
 }

@@ -7,6 +7,7 @@ using System.Web;
 
 namespace MulkBulk.Domain.Concrete
 {
+
     public class UserDatabase : DbContext
     {
         public UserDatabase() : base("UsersContext") { }

@@ -21,17 +21,10 @@ namespace MulkBulk.Controllers
         protected IContext _context;
 
         public MulkControllerBase()
-            : this(new UserManager<IdentityModels>(new UserStore<IdentityModels>(new ApplicationDbContext())))
         {
             _context = new Context();
             _users = new UserService(_context);
-            
         }
-         public MulkControllerBase(UserManager<IdentityModels> userManager)
-        {
-            UserManager = userManager;
-        }
-          public UserManager<IdentityModels> UserManager { get; private set; }
 
 
 	}

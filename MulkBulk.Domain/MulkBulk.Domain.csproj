@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -105,9 +107,9 @@
     <Compile Include="Entities\MulkUser.cs" />
     <Compile Include="Entities\UserFriends.cs" />
     <Compile Include="Entities\UserMessages.cs" />
-    <Compile Include="Migrations\201312040524136_test.cs" />
-    <Compile Include="Migrations\201312040524136_test.Designer.cs">
-      <DependentUpon>201312040524136_test.cs</DependentUpon>
+    <Compile Include="Migrations\201312070817556_ModifiedMulkUser.cs" />
+    <Compile Include="Migrations\201312070817556_ModifiedMulkUser.Designer.cs">
+      <DependentUpon>201312070817556_ModifiedMulkUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,8 +118,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201312040524136_test.resx">
-      <DependentUpon>201312040524136_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201312070817556_ModifiedMulkUser.resx">
+      <DependentUpon>201312070817556_ModifiedMulkUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -145,6 +147,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

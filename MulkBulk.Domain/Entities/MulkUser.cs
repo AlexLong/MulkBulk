@@ -11,6 +11,8 @@ namespace MulkBulk.Domain.Entities
     {
         [Key]
         public int Id { get; set; }
+
+        [EmailAddress]
         public string Email { get; set; }
 
         private IList<UserMessages> _messages;

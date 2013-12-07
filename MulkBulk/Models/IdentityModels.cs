@@ -13,12 +13,12 @@ namespace MulkBulk.Models
     {
         public ApplicationDbContext() : base("UsersContext"){}
 
-
         protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
         {
+         //   modelBuilder.Entity<IdentityModels>().Map(x => x.ToTable("Identify Model"));
+
             base.OnModelCreating(modelBuilder);
 
-          //  modelBuilder.Entity<MulkUser>().Ignore(x => x.Id);
         }
     }
 }

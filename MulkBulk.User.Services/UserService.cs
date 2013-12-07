@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using MulkBulk.User.Services;
 using MulkBulk.User.Services.Interfaces;
+using System.Collections;
 
 namespace MulkBulk.User.Services
 {
@@ -25,37 +26,11 @@ namespace MulkBulk.User.Services
             _users = context.Users;
             _messages = context.Messages;
         }
-        public System.Collections.IEnumerable All()
+        public IEnumerable All()
         {
 
             return _context.Users.All();
         }
-        /*
-        public MulkUser GetBy(string username)
-        {
-            return _context.Users.GetBy(username);
-        }
-        */
-        /*
-        public MulkUser Create(string username, string password, string email, DateTime? created = null)
-        {
-            
-            var user = new MulkUser()
-            {
-                UserName = username,
-                Password = Crypto.HashPassword(password),
-                Email = email,
-                RegistrationDate = created ?? DateTime.Now
-            };
-
-        
-            _users.Create(user);
-            _context.SaveChanges();
-
-            return user;
-        }
-   
-        */
         public UserMessages ComposeMessage(string mess, string to)
         {
             var message = new UserMessages()
@@ -72,6 +47,24 @@ namespace MulkBulk.User.Services
             return message;
 
         }
+
+        public bool DoesUserExist(string email)
+        {
+            return _users.GetBy(email) != null;
+        }
+        public MulkUser Create(string email, DateTime? created = null)
+        {
+            var user = new MulkUser()
+            {
+                 Email = email,
+                 RegistrationDate = DateTime.Now
+            };
+            _users.Create(user);
+            _context.SaveChanges();
+            return user;
+        }
+
+
     }
 }
  
