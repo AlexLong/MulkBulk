@@ -86,7 +86,7 @@ namespace MulkBulk.Controllers
                     return View("Register", model);
                 }
 
-                var user = new IdentityModels() { UserName = model.UserName, MulkUsers = _users.Create(model.Email) };
+                var user = new IdentityModels() { UserName = model.UserName, MulkUserProfile = _users.Create(model.Email) };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

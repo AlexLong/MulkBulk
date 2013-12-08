@@ -98,18 +98,18 @@
     <Compile Include="Abstract\IContext.cs" />
     <Compile Include="Abstract\IMessageRepository.cs" />
     <Compile Include="Abstract\IRepository.cs" />
-    <Compile Include="Abstract\IUserRepository.cs" />
+    <Compile Include="Abstract\IUserProfileRepository.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\EfRepository.cs" />
     <Compile Include="Concrete\MessageRepository.cs" />
     <Compile Include="Concrete\UserDatabase.cs" />
-    <Compile Include="Concrete\UserRepository.cs" />
-    <Compile Include="Entities\MulkUser.cs" />
+    <Compile Include="Concrete\UserProfileRepository.cs" />
+    <Compile Include="Entities\MulkUserProfiles.cs" />
     <Compile Include="Entities\UserFriends.cs" />
     <Compile Include="Entities\UserMessages.cs" />
-    <Compile Include="Migrations\201312070817556_ModifiedMulkUser.cs" />
-    <Compile Include="Migrations\201312070817556_ModifiedMulkUser.Designer.cs">
-      <DependentUpon>201312070817556_ModifiedMulkUser.cs</DependentUpon>
+    <Compile Include="Migrations\201312080510075_ChangedEntities.cs" />
+    <Compile Include="Migrations\201312080510075_ChangedEntities.Designer.cs">
+      <DependentUpon>201312080510075_ChangedEntities.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,8 +118,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201312070817556_ModifiedMulkUser.resx">
-      <DependentUpon>201312070817556_ModifiedMulkUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201312080510075_ChangedEntities.resx">
+      <DependentUpon>201312080510075_ChangedEntities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace MulkBulk.Domain.Abstract
 {
-    public interface IUserRepository: IRepository<MulkUser>
+    public interface IUserProfileRepository: IRepository<MulkUserProfiles>
     {
 
        // IQueryable<UserEntity> All();
 
-        MulkUser GetBy(int userId /*, bool includeProfile = false, bool includeRibbits = false,
-            bool includeFollowers = false, bool includeFollowing = false*/);
+        MulkUserProfiles GetBy(int userId );/*, bool includeProfile = false, bool includeRibbits = false,
+                                               bool includeFollowers = false, bool includeFollowing = false*/
 
-         MulkUser GetBy(string email);
+         MulkUserProfiles GetBy(string email);
 
 
         /*

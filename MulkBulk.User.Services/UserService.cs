@@ -17,19 +17,20 @@ namespace MulkBulk.User.Services
     public class UserService : IUserService
     {
         protected IContext _context;
-        private readonly IUserRepository _users;
+        private readonly IUserProfileRepository _userProfile;
         private readonly IMessageRepository _messages;
+    
 
         public UserService(IContext context)
         {
             _context = context;
-            _users = context.Users;
+            _userProfile = context.UserProfile;
             _messages = context.Messages;
-        }
+           }
         public IEnumerable All()
         {
 
-            return _context.Users.All();
+            return _context.UserProfile.All();
         }
         public UserMessages ComposeMessage(string mess, string to)
         {
@@ -39,7 +40,7 @@ namespace MulkBulk.User.Services
                 MessageContent = mess,
                 AuthorId = 1,
             };
-            var use = _users.GetBy(message.AuthorId);
+            var use = _userProfile.GetBy(message.AuthorId);
             _messages.AddFor(message, use);
 
             _context.SaveChanges();
@@ -50,16 +51,16 @@ namespace MulkBulk.User.Services
 
         public bool DoesUserExist(string email)
         {
-            return _users.GetBy(email) != null;
+            return _userProfile.GetBy(email) != null;
         }
-        public MulkUser Create(string email, DateTime? created = null)
+        public MulkUserProfiles Create(string email, DateTime? created = null)
         {
-            var user = new MulkUser()
+            var user = new MulkUserProfiles()
             {
                  Email = email,
                  RegistrationDate = DateTime.Now
             };
-            _users.Create(user);
+            _userProfile.Create(user);
             _context.SaveChanges();
             return user;
         }

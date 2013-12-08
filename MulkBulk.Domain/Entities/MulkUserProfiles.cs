@@ -7,7 +7,7 @@ using System.Web;
 
 namespace MulkBulk.Domain.Entities
 {
-    public class MulkUser
+    public class MulkUserProfiles
     {
         [Key]
         public int Id { get; set; }

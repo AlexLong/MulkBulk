@@ -13,7 +13,7 @@ namespace MulkBulk.User.Services.Interfaces
         IEnumerable All();
         UserMessages ComposeMessage(string mess, string to);
 
-        MulkUser Create(string email, DateTime? created = null);
+        MulkUserProfiles Create(string email, DateTime? created = null);
 
         bool DoesUserExist(string email);
 

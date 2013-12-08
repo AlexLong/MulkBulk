@@ -14,7 +14,7 @@ namespace MulkBulk.Domain.Entities
         public int AuthorId { get; set; }
 
         [ForeignKey("AuthorId")]
-        public virtual MulkUser Author { get; set; }
+        public virtual MulkUserProfiles Author { get; set; }
         public DateTime Date { get; set; }
 
     }

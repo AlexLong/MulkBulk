@@ -13,16 +13,17 @@ namespace MulkBulk.Domain.Concrete
         protected DbContext _db;
 
         public Context(DbContext context = null, 
-            IUserRepository users = null,
+            IUserProfileRepository users = null,
             IMessageRepository messages = null
-
             )
         {
             _db = context ?? new UserDatabase();
-            Users = users ?? new UserRepository(_db, true);
+            UserProfile = UserProfile ?? new UserProfileRepository(_db, true); 
             Messages = messages ?? new MessageRepository(_db, true);
+            
         }
-        public IUserRepository Users
+
+        public IUserProfileRepository UserProfile
         {
             get;
             private set;
@@ -33,6 +34,7 @@ namespace MulkBulk.Domain.Concrete
             private set;
         }
 
+        
      
         public int SaveChanges()
         {
@@ -50,5 +52,7 @@ namespace MulkBulk.Domain.Concrete
                 catch { }
             }
         }
+
+
     }
 }

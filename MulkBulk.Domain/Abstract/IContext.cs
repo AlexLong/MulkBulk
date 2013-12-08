@@ -8,10 +8,11 @@ namespace MulkBulk.Domain.Abstract
     public interface IContext : IDisposable
     {
 
-        IUserRepository Users {get; }
+        IUserProfileRepository UserProfile {get; }
 
         IMessageRepository Messages { get; }
 
+ 
         int SaveChanges();
 
     }
