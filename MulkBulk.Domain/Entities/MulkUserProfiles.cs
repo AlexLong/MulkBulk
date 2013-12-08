@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -12,20 +13,16 @@ namespace MulkBulk.Domain.Entities
         [Key]
         public int Id { get; set; }
 
-        [EmailAddress]
+        [EmailAddress,MaxLength(128)]
         public string Email { get; set; }
 
-        private IList<UserMessages> _messages;
-        public virtual IList<UserMessages> Messages
-        {
-            get { return _messages ?? (_messages = new List<UserMessages>()); }
-            set { _messages = value; }
-        }
-        /**/
-        public DateTime RegistrationDate { get; set; }
+        [MaxLength(128)]
+        public string FirstName { get; set; }
 
-
-
+         [MaxLength(128)]
+        public string LastName { get; set; }
+        public DateTime? BirthDay { get; set; }
+    
 
     }
 }

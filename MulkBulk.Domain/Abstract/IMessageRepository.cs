@@ -12,8 +12,8 @@ namespace MulkBulk.Domain.Abstract
 
        UserMessages  GetBy(int id);
 
-       IEnumerable<UserMessages> GetFor(MulkUserProfiles user);
-       void AddFor(UserMessages message, MulkUserProfiles user);
+       IEnumerable<UserMessages> GetFor(MulkUser user);
+       void AddFor(UserMessages message, MulkUser user);
 
    }
 }

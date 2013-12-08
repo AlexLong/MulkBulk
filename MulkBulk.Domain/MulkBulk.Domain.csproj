@@ -97,19 +97,31 @@
   <ItemGroup>
     <Compile Include="Abstract\IContext.cs" />
     <Compile Include="Abstract\IMessageRepository.cs" />
+    <Compile Include="Abstract\IMulkUserRepository.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IUserProfileRepository.cs" />
+    <Compile Include="Concrete\ApplicationDbContext.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\EfRepository.cs" />
     <Compile Include="Concrete\MessageRepository.cs" />
+    <Compile Include="Concrete\MulkUserRepository.cs" />
+    <Compile Include="Entities\MulkUser.cs" />
     <Compile Include="Concrete\UserDatabase.cs" />
     <Compile Include="Concrete\UserProfileRepository.cs" />
     <Compile Include="Entities\MulkUserProfiles.cs" />
     <Compile Include="Entities\UserFriends.cs" />
     <Compile Include="Entities\UserMessages.cs" />
-    <Compile Include="Migrations\201312080510075_ChangedEntities.cs" />
-    <Compile Include="Migrations\201312080510075_ChangedEntities.Designer.cs">
-      <DependentUpon>201312080510075_ChangedEntities.cs</DependentUpon>
+    <Compile Include="Migrations\201312081319463_ChangedModel.cs" />
+    <Compile Include="Migrations\201312081319463_ChangedModel.Designer.cs">
+      <DependentUpon>201312081319463_ChangedModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201312081321580_ChangedModel1.cs" />
+    <Compile Include="Migrations\201312081321580_ChangedModel1.Designer.cs">
+      <DependentUpon>201312081321580_ChangedModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201312081328276_ChangedModel11.cs" />
+    <Compile Include="Migrations\201312081328276_ChangedModel11.Designer.cs">
+      <DependentUpon>201312081328276_ChangedModel11.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,8 +130,14 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201312080510075_ChangedEntities.resx">
-      <DependentUpon>201312080510075_ChangedEntities.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201312081319463_ChangedModel.resx">
+      <DependentUpon>201312081319463_ChangedModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312081321580_ChangedModel1.resx">
+      <DependentUpon>201312081321580_ChangedModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312081328276_ChangedModel11.resx">
+      <DependentUpon>201312081328276_ChangedModel11.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

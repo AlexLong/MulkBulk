@@ -17,7 +17,7 @@ namespace MulkBulk.Domain.Concrete
             IMessageRepository messages = null
             )
         {
-            _db = context ?? new UserDatabase();
+            _db = context ?? new ApplicationDbContext();
             UserProfile = UserProfile ?? new UserProfileRepository(_db, true); 
             Messages = messages ?? new MessageRepository(_db, true);
             

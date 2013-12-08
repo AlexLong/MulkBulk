@@ -11,9 +11,11 @@ namespace MulkBulk.User.Services.Interfaces
     public  interface IUserService
     {
         IEnumerable All();
-        UserMessages ComposeMessage(string mess, string to);
 
-        MulkUserProfiles Create(string email, DateTime? created = null);
+        UserMessages ComposeMessage(string messageContent, string authorId, MulkUser user);
+
+        MulkUserProfiles Create(string email, 
+            string firstname = "", string lastname = "", DateTime? birthday = null);
 
         bool DoesUserExist(string email);
 

@@ -23,6 +23,7 @@ namespace MulkBulk.Controllers
         public MulkControllerBase()
         {
             _context = new Context();
+
             _users = new UserService(_context);
         }
 

@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using MulkBulk.Models;
 using MulkBulk.Domain.Entities;
+using MulkBulk.Domain.Concrete;
 
 namespace MulkBulk.Controllers
 {
@@ -17,16 +18,16 @@ namespace MulkBulk.Controllers
     public class AccountController : MulkControllerBase
     {
         public AccountController()
-            : this(new UserManager<IdentityModels>(new UserStore<IdentityModels>(new ApplicationDbContext())))
+            : this(new UserManager<MulkUser>(new UserStore<MulkUser>(new ApplicationDbContext())))
         {
         }
 
-        public AccountController(UserManager<IdentityModels> userManager)
+        public AccountController(UserManager<MulkUser> userManager)
         {
             UserManager = userManager;
         }
 
-        public UserManager<IdentityModels> UserManager { get; private set; }
+        public UserManager<MulkUser> UserManager { get; private set; }
 
         //
         // GET: /Account/Login
@@ -34,6 +35,7 @@ namespace MulkBulk.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+           
             return View();
         }
 
@@ -47,6 +49,7 @@ namespace MulkBulk.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
+             
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
@@ -86,7 +89,8 @@ namespace MulkBulk.Controllers
                     return View("Register", model);
                 }
 
-                var user = new IdentityModels() { UserName = model.UserName, MulkUserProfile = _users.Create(model.Email) };
+                var user = new MulkUser() { UserName = model.UserName, MulkUserProfile = _users.Create(model.Email), RegistrationDate = DateTime.Now };
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -110,6 +114,7 @@ namespace MulkBulk.Controllers
         public async Task<ActionResult> Disassociate(string loginProvider, string providerKey)
         {
             ManageMessageId? message = null;
+          
             IdentityResult result = await UserManager.RemoveLoginAsync(User.Identity.GetUserId(), new UserLoginInfo(loginProvider, providerKey));
             if (result.Succeeded)
             {
@@ -241,6 +246,8 @@ namespace MulkBulk.Controllers
         public async Task<ActionResult> LinkLoginCallback()
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());
+
+
             if (loginInfo == null)
             {
                 return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
@@ -273,7 +280,7 @@ namespace MulkBulk.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new IdentityModels() { UserName = model.UserName };
+                var user = new MulkUser() { UserName = model.UserName };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -339,7 +346,7 @@ namespace MulkBulk.Controllers
             }
         }
 
-        private async Task SignInAsync(IdentityModels user, bool isPersistent)
+        private async Task SignInAsync(MulkUser user, bool isPersistent)
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);

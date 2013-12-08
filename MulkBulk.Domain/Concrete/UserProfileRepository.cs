@@ -35,17 +35,11 @@ namespace MulkBulk.Domain.Concrete
             return query;
         }
      
-        public MulkUserProfiles GetBy(string email)
+
+        public MulkUserProfiles GetEmail(string email)
         {
-
-            var query = BuildUserQuery();
-
-
-            return query.FirstOrDefault(x => x.Email == email);
-        
-        } 
-        
-       
+            return Find(x => x.Email == email);
+        }
 
     }
 }

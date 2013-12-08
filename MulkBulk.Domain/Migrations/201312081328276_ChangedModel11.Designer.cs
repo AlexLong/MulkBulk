@@ -7,13 +7,13 @@ namespace MulkBulk.Domain.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.1-21010")]
-    public sealed partial class ChangedEntities : IMigrationMetadata
+    public sealed partial class ChangedModel11 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedEntities));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedModel11));
         
         string IMigrationMetadata.Id
         {
-            get { return "201312080510075_ChangedEntities"; }
+            get { return "201312081328276_ChangedModel11"; }
         }
         
         string IMigrationMetadata.Source

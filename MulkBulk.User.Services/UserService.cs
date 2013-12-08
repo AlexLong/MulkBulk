@@ -32,16 +32,19 @@ namespace MulkBulk.User.Services
 
             return _context.UserProfile.All();
         }
-        public UserMessages ComposeMessage(string mess, string to)
+        public UserMessages ComposeMessage(string messageContent, string authorId, MulkUser user)
         {
+       
             var message = new UserMessages()
             {
                 Date = DateTime.Now,
-                MessageContent = mess,
-                AuthorId = 1,
+                MessageContent = messageContent,
+                AuthorId = authorId,
+                ReceiverID = user.Id
             };
-            var use = _userProfile.GetBy(message.AuthorId);
-            _messages.AddFor(message, use);
+       
+            _messages.AddFor(message,user);
+
 
             _context.SaveChanges();
 
@@ -51,17 +54,24 @@ namespace MulkBulk.User.Services
 
         public bool DoesUserExist(string email)
         {
-            return _userProfile.GetBy(email) != null;
+            return _userProfile.GetEmail(email) != null;
         }
-        public MulkUserProfiles Create(string email, DateTime? created = null)
+        public MulkUserProfiles Create(string email, 
+            string firstname = "", string lastname = "", DateTime? birthday = null)
         {
             var user = new MulkUserProfiles()
             {
                  Email = email,
-                 RegistrationDate = DateTime.Now
+                 FirstName = firstname,
+                 LastName = lastname,
+                 BirthDay = birthday
             };
+            /*
             _userProfile.Create(user);
+
             _context.SaveChanges();
+             */
+
             return user;
         }
 
