@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,17 +9,105 @@ namespace MulkBulk.Controllers
 {
     public class UserController : MulkControllerBase
     {
+
+
         //
-        // GET: /User/
-        [Authorize]
+        // GET: /{username}/{action}/
         public ActionResult Index(string username)
         {
-
-          
-
-
-            throw new NotImplementedException("The username: " + username);
-           // return View();
+            String response  ="";
+            
+        if(!_users.DoesUsernameExist(username))
+        {
+            response = String.Format("The user {0} doesn't exist", username);
+            return new HttpNotFoundResult(response);
         }
-	}
+
+            response = String.Format("The user {0} Exists",username);
+
+
+            return View("UserProfile", _users.GetUserProfile(username));
+
+           // throw new NotImplementedException(response);
+        }
+
+        //
+        // GET: /User/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        //
+        // GET: /User/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //
+        // POST: /User/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // GET: /User/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        //
+        // POST: /User/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // GET: /User/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        //
+        // POST: /User/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+    }
 }

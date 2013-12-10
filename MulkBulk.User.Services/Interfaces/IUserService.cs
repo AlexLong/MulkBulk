@@ -1,4 +1,5 @@
-﻿using MulkBulk.Domain.Entities;
+﻿using MulkBulk.Domain.DTO;
+using MulkBulk.Domain.Entities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +18,9 @@ namespace MulkBulk.User.Services.Interfaces
         MulkUserProfiles Create(string email, 
             string firstname = "", string lastname = "", DateTime? birthday = null);
 
-        bool DoesUserExist(string email);
+        bool DoesEmailExist(string email);
+        bool DoesUsernameExist(string username);
 
+        UserProfileDTO GetUserProfile(string id);
     }
 }

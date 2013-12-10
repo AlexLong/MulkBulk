@@ -27,7 +27,6 @@ namespace MulkBulk.Controllers
             UserManager = userManager;
         }
 
-        public UserManager<MulkUser> UserManager { get; private set; }
 
         //
         // GET: /Account/Login
@@ -83,7 +82,7 @@ namespace MulkBulk.Controllers
             if (ModelState.IsValid)
             {
 
-                if(_users.DoesUserExist(model.Email))
+                if(_users.DoesEmailExist(model.Email))
                 {
                     ModelState.AddModelError("Email", "Email is already taken.");
                     return View("Register", model);
@@ -316,9 +315,11 @@ namespace MulkBulk.Controllers
             return View();
         }
 
+
         [ChildActionOnly]
         public ActionResult RemoveAccountList()
         {
+
             var linkedAccounts = UserManager.GetLogins(User.Identity.GetUserId());
             ViewBag.ShowRemoveButton = HasPassword() || linkedAccounts.Count > 1;
             return (ActionResult)PartialView("_RemoveAccountPartial", linkedAccounts);

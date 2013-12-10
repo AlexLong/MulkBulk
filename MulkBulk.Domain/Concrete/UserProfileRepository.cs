@@ -35,10 +35,9 @@ namespace MulkBulk.Domain.Concrete
             return query;
         }
      
-
-        public MulkUserProfiles GetEmail(string email)
+        public string GetEmail(string email)
         {
-            return Find(x => x.Email == email);
+           return ContextDbSet.Where(x => x.Email == email).Select(x => x.Email).SingleOrDefault();
         }
 
     }

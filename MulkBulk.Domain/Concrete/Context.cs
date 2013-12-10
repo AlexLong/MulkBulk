@@ -13,14 +13,22 @@ namespace MulkBulk.Domain.Concrete
         protected DbContext _db;
 
         public Context(DbContext context = null, 
+            MulkUserRepository mulkUser = null,
             IUserProfileRepository users = null,
             IMessageRepository messages = null
             )
         {
             _db = context ?? new ApplicationDbContext();
-            UserProfile = UserProfile ?? new UserProfileRepository(_db, true); 
+            UserProfile = UserProfile ?? new UserProfileRepository(_db, true);
+            MulkUser = mulkUser ?? new MulkUserRepository(_db, true); 
             Messages = messages ?? new MessageRepository(_db, true);
             
+        }
+
+        public IMulkUserRepository MulkUser
+        {
+            get;
+            private set;
         }
 
         public IUserProfileRepository UserProfile
@@ -33,6 +41,7 @@ namespace MulkBulk.Domain.Concrete
             get;
             private set;
         }
+
 
         
      

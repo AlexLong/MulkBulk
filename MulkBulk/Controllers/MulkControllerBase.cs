@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using MulkBulk.Domain.Abstract;
 using MulkBulk.Domain.Concrete;
+using MulkBulk.Domain.Entities;
 using MulkBulk.Models;
 using MulkBulk.User.Services;
 using MulkBulk.User.Services.Interfaces;
@@ -23,10 +24,11 @@ namespace MulkBulk.Controllers
         public MulkControllerBase()
         {
             _context = new Context();
-
             _users = new UserService(_context);
         }
 
+
+        public UserManager<MulkUser> UserManager { get; set; }
 
 	}
 }

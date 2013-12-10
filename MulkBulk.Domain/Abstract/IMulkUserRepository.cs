@@ -1,4 +1,5 @@
-﻿using MulkBulk.Domain.Entities;
+﻿using MulkBulk.Domain.DTO;
+using MulkBulk.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,11 @@ namespace MulkBulk.Domain.Abstract
   public interface IMulkUserRepository : IRepository<MulkUser>
   {
 
-      MulkUser GetUserId(string userId);
-      MulkUser GetUserName(string userName);
+      //MulkUser GetUserId(string userId);
+    //  MulkUser GetUserName(string userName);
 
+      string GetUserName(string userName);
+
+      UserProfileDTO GetProfile(string username);
   }
 }

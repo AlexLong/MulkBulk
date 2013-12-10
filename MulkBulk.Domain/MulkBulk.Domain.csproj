@@ -105,6 +105,7 @@
     <Compile Include="Concrete\EfRepository.cs" />
     <Compile Include="Concrete\MessageRepository.cs" />
     <Compile Include="Concrete\MulkUserRepository.cs" />
+    <Compile Include="DTO\UserProfileDTO.cs" />
     <Compile Include="Entities\MulkUser.cs" />
     <Compile Include="Concrete\UserDatabase.cs" />
     <Compile Include="Concrete\UserProfileRepository.cs" />
@@ -139,6 +140,12 @@
     <EmbeddedResource Include="Migrations\201312081328276_ChangedModel11.resx">
       <DependentUpon>201312081328276_ChangedModel11.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MulkBulk.User\MulkBulk.User.csproj">
+      <Project>{3b11a16d-67af-4763-b459-5299cbf23091}</Project>
+      <Name>MulkBulk.User</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

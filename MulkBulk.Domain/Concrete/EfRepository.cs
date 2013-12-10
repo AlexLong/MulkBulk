@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 
 namespace MulkBulk.Domain.Concrete
@@ -35,6 +36,8 @@ namespace MulkBulk.Domain.Concrete
             return ContextDbSet.Any(predicate);
         }
 
+
+
         public int Count
         {
             get { return ContextDbSet.Count(); }
@@ -50,6 +53,7 @@ namespace MulkBulk.Domain.Concrete
             }
             return t;
         }
+
 
         public int Delete(T t)
         {
@@ -82,6 +86,8 @@ namespace MulkBulk.Domain.Concrete
         {
             return ContextDbSet.SingleOrDefault(predicate);
         }
+
+       
 
         public IQueryable<T> FindAll(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
         {

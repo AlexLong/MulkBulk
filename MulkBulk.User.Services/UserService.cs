@@ -11,21 +11,25 @@ using Microsoft.Owin.Security;
 using MulkBulk.User.Services;
 using MulkBulk.User.Services.Interfaces;
 using System.Collections;
+using MulkBulk.Domain.DTO;
 
 namespace MulkBulk.User.Services
 {
     public class UserService : IUserService
     {
         protected IContext _context;
+        private readonly IMulkUserRepository _mulkUser;
         private readonly IUserProfileRepository _userProfile;
         private readonly IMessageRepository _messages;
-    
+        
 
         public UserService(IContext context)
         {
             _context = context;
+            _mulkUser = context.MulkUser;
             _userProfile = context.UserProfile;
             _messages = context.Messages;
+
            }
         public IEnumerable All()
         {
@@ -42,7 +46,6 @@ namespace MulkBulk.User.Services
                 AuthorId = authorId,
                 ReceiverID = user.Id
             };
-       
             _messages.AddFor(message,user);
 
 
@@ -52,10 +55,21 @@ namespace MulkBulk.User.Services
 
         }
 
-        public bool DoesUserExist(string email)
+        public bool DoesEmailExist(string email)
         {
             return _userProfile.GetEmail(email) != null;
         }
+        public bool DoesUsernameExist(string username)
+        {
+
+            return _mulkUser.GetUserName(username) != null;
+        }
+
+        public UserProfileDTO GetUserProfile(string username)
+        {
+            return _mulkUser.GetProfile(username);
+        }
+
         public MulkUserProfiles Create(string email, 
             string firstname = "", string lastname = "", DateTime? birthday = null)
         {

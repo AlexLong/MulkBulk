@@ -12,7 +12,7 @@ namespace MulkBulk.Domain.Abstract
 
        // IQueryable<UserEntity> All();
 
-        MulkUserProfiles GetEmail(string email);/*, bool includeProfile = false, bool includeRibbits = false,
+        string GetEmail(string email);/*, bool includeProfile = false, bool includeRibbits = false,
                                                bool includeFollowers = false, bool includeFollowing = false*/
      
 
