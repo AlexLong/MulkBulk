@@ -3,7 +3,7 @@ MulkBulk
 
 The Asp.net MVC based clone of twitter.
 
-Developed Features:
+Implemented Features:
 
 
 1. User Sign up/ Sign in 
